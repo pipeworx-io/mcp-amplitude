@@ -2,21 +2,21 @@
 
 Amplitude MCP Pack
 
-Part of the [Pipeworx](https://pipeworx.io) open MCP gateway.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 250+ live data sources.
 
 ## Tools
 
 | Tool | Description |
 |------|-------------|
-| `amp_get_events` | Get event segmentation data from Amplitude for a date range. Returns event counts and breakdowns. |
-| `amp_get_active_users` | Get daily/weekly/monthly active user counts for a date range. |
-| `amp_get_retention` | Get retention data for a date range. Shows how many users return over time. |
-| `amp_user_search` | Search for a user by user property or user ID. Returns matching Amplitude user profiles. |
-| `amp_get_user_activity` | Get recent event activity for a specific user by their Amplitude ID. |
+| `amp_get_events` | Get event counts and breakdowns for a date range (e.g., "2024-01-01" to "2024-01-31"). Returns frequency, user segments, and trends by event name. |
+| `amp_get_active_users` | Get active user counts by granularity (daily, weekly, or monthly) for a date range. Returns totals and trend data. |
+| `amp_get_retention` | Get user retention metrics for a cohort over time. Returns retention percentages by time period (e.g., day 1, day 7, day 30). |
+| `amp_user_search` | Search for users by ID or property (e.g., email, user_id). Returns matching profiles with properties, event history, and segments. |
+| `amp_get_user_activity` | Get recent event activity timeline for a specific user. Returns events with timestamps, properties, and interactions. |
 
 ## Quick Start
 
-Add to your MCP client config:
+Add to your MCP client (Claude Desktop, Cursor, Windsurf, etc.):
 
 ```json
 {
@@ -28,11 +28,32 @@ Add to your MCP client config:
 }
 ```
 
-Or use the CLI:
+Or connect to the full Pipeworx gateway for access to all 250+ data sources:
 
-```bash
-npx pipeworx use amplitude
+```json
+{
+  "mcpServers": {
+    "pipeworx": {
+      "url": "https://gateway.pipeworx.io/mcp"
+    }
+  }
+}
 ```
+
+## Using with ask_pipeworx
+
+Instead of calling tools directly, you can ask questions in plain English:
+
+```
+ask_pipeworx({ question: "your question about Amplitude data" })
+```
+
+The gateway picks the right tool and fills the arguments automatically.
+
+## More
+
+- [All tools and guides](https://github.com/pipeworx-io/examples)
+- [pipeworx.io](https://pipeworx.io)
 
 ## License
 
