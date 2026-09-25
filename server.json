@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/amplitude",
   "title": "Amplitude",
   "description": "Amplitude MCP Pack",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "websiteUrl": "https://pipeworx.io/packs/amplitude",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-amplitude",

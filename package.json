@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-amplitude",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Amplitude MCP Pack",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-4550764248dda18a7e29d3e77239c1435dc447e0cabc0d74eae79d46d5e1f36b",
-    "sourceCommit": "60f04b68c347e970c6be94a53439d1364061fc06"
+    "sourceHash": "v1-0a9abdddf8effeaf075ba310b4ce01f76db7a9fa6b025a90eca6ee1a930fbd3d",
+    "sourceCommit": "dca20ba6e13a9aa1c9f2918fc2ddaffe4cc30e5c"
   }
 }
