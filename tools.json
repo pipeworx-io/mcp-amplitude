@@ -1,0 +1,172 @@
+[
+  {
+    "name": "amp_get_events",
+    "description": "Get event counts and breakdowns for a date range (e.g., \"2024-01-01\" to \"2024-01-31\"). Returns frequency, user segments, and trends by event name.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "_apiKey": {
+          "type": "string",
+          "description": "Amplitude API key"
+        },
+        "_secretKey": {
+          "type": "string",
+          "description": "Amplitude secret key"
+        },
+        "event_type": {
+          "type": "string",
+          "description": "EXACT event name as registered in the Amplitude project (case-sensitive). Do NOT guess or invent names — use the user-provided event name verbatim. Amplitude rejects unknown events with a 400."
+        },
+        "start": {
+          "type": "string",
+          "description": "Start date (YYYYMMDD)"
+        },
+        "end": {
+          "type": "string",
+          "description": "End date (YYYYMMDD)"
+        },
+        "group_by": {
+          "type": "string",
+          "description": "Property to group by (optional)"
+        }
+      },
+      "required": [
+        "_apiKey",
+        "_secretKey",
+        "event_type",
+        "start",
+        "end"
+      ]
+    }
+  },
+  {
+    "name": "amp_get_active_users",
+    "description": "Get active user counts by granularity (daily, weekly, or monthly) for a date range. Returns totals and trend data.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "_apiKey": {
+          "type": "string",
+          "description": "Amplitude API key"
+        },
+        "_secretKey": {
+          "type": "string",
+          "description": "Amplitude secret key"
+        },
+        "start": {
+          "type": "string",
+          "description": "Start date (YYYYMMDD)"
+        },
+        "end": {
+          "type": "string",
+          "description": "End date (YYYYMMDD)"
+        },
+        "m": {
+          "type": "string",
+          "description": "Metric: \"active\" (DAU), \"new\", or \"returning\" (default \"active\")"
+        }
+      },
+      "required": [
+        "_apiKey",
+        "_secretKey",
+        "start",
+        "end"
+      ]
+    }
+  },
+  {
+    "name": "amp_get_retention",
+    "description": "Get user retention metrics for a cohort over time. Returns retention percentages by time period (e.g., day 1, day 7, day 30).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "_apiKey": {
+          "type": "string",
+          "description": "Amplitude API key"
+        },
+        "_secretKey": {
+          "type": "string",
+          "description": "Amplitude secret key"
+        },
+        "start": {
+          "type": "string",
+          "description": "Start date (YYYYMMDD)"
+        },
+        "end": {
+          "type": "string",
+          "description": "End date (YYYYMMDD)"
+        },
+        "re": {
+          "type": "string",
+          "description": "Retention type: \"rolling\" or \"bracket\" (default \"rolling\")"
+        }
+      },
+      "required": [
+        "_apiKey",
+        "_secretKey",
+        "start",
+        "end"
+      ]
+    }
+  },
+  {
+    "name": "amp_user_search",
+    "description": "Search for users by ID or property (e.g., email, user_id). Returns matching profiles with properties, event history, and segments.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "_apiKey": {
+          "type": "string",
+          "description": "Amplitude API key"
+        },
+        "_secretKey": {
+          "type": "string",
+          "description": "Amplitude secret key"
+        },
+        "user": {
+          "type": "string",
+          "description": "User search term (email, user_id, or Amplitude ID)"
+        }
+      },
+      "required": [
+        "_apiKey",
+        "_secretKey",
+        "user"
+      ]
+    }
+  },
+  {
+    "name": "amp_get_user_activity",
+    "description": "Get recent event activity timeline for a specific user. Returns events with timestamps, properties, and interactions.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "_apiKey": {
+          "type": "string",
+          "description": "Amplitude API key"
+        },
+        "_secretKey": {
+          "type": "string",
+          "description": "Amplitude secret key"
+        },
+        "amplitude_id": {
+          "type": "string",
+          "description": "Amplitude internal user ID (from amp_user_search results)"
+        },
+        "offset": {
+          "type": "number",
+          "description": "Pagination offset (default 0)"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max events to return (default 100, max 1000)"
+        }
+      },
+      "required": [
+        "_apiKey",
+        "_secretKey",
+        "amplitude_id"
+      ]
+    }
+  }
+]
